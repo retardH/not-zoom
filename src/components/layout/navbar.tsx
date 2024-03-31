@@ -15,11 +15,20 @@ const Navbar = () => {
           height={36}
           className="max-sm:size-10"
         />
-        <h4 className="rotate-180 text-xl font-bold">ZOOM</h4>
+        <h4 className="text-xl font-bold max-md:hidden">MOOZ</h4>
       </Link>
       <div className="flex items-center gap-5">
         <SignedIn>
-          <UserButton />
+          <UserButton
+            appearance={{
+              elements: {
+                userButtonAvatarBox: {
+                  width: 40,
+                  height: 40,
+                },
+              },
+            }}
+          />
         </SignedIn>
         <SignedOut>
           <Button>Login</Button>

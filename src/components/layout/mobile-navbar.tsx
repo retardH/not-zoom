@@ -25,7 +25,7 @@ const MobileNav = () => {
             className="cursor-pointer sm:hidden"
           />
         </SheetTrigger>
-        <SheetContent side="left" className="bg-dark-1 border-none">
+        <SheetContent side="left" className="border-none bg-dark-1">
           <Link href="/" className="flex items-center gap-1">
             <Image
               src="/icons/logo.svg"
@@ -34,7 +34,7 @@ const MobileNav = () => {
               height={36}
               className="max-sm:size-10"
             />
-            <h4 className="rotate-180 text-xl font-bold">ZOOM</h4>
+            <h4 className="rotate-180 text-xl font-bold">MOOZ</h4>
           </Link>
           <div className="flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto">
             <SheetClose asChild>
