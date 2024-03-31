@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
+import ClerkProvier from "@/providers/clerk-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,26 +18,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ClerkProvider
-        appearance={{
-          layout: {
-            socialButtonsVariant: "iconButton",
-            logoImageUrl: "/icons/yoom-logo.svg",
-          },
-          variables: {
-            colorText: "#fff",
-            colorPrimary: "#0E78F9",
-            colorBackground: "#1C1F2E",
-            colorInputBackground: "#252A41",
-            colorInputText: "#fff",
-          },
-          baseTheme: dark,
-        }}
-      >
+      <ClerkProvier>
         <body className={`${inter.className} dark bg-dark-2 antialiased`}>
           {children}
+          <Toaster
+            toastOptions={{
+              className: "",
+              style: {
+                background: "#1C1F2E",
+                color: "white",
+              },
+            }}
+          />
         </body>
-      </ClerkProvider>
+      </ClerkProvier>
     </html>
   );
 }

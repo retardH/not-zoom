@@ -1,7 +1,8 @@
+import StreamClientProvider from "@/providers/stream-client-provider";
 import { PropsWithChildren } from "react";
 
 const RootLayout = ({ children }: PropsWithChildren) => {
-  return <main>{children}</main>;
+  return <StreamClientProvider>{children}</StreamClientProvider>;
 };
 
 export default RootLayout;
