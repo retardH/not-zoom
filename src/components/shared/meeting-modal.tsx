@@ -50,6 +50,7 @@ const MeetingModal = ({
             <Button
               className="focus-visible:ring-0 focus-visible:ring-offset-0"
               onClick={onOk}
+              variant="blue"
             >
               {buttonIconUrl && (
                 <Image

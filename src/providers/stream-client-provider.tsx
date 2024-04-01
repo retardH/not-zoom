@@ -3,10 +3,8 @@ import { tokenProvider } from "@/actions/stream.action";
 import Loader from "@/components/shared/loader";
 import { useUser } from "@clerk/nextjs";
 import {
-  StreamCall,
   StreamVideo,
   StreamVideoClient,
-  User,
 } from "@stream-io/video-react-sdk";
 import { PropsWithChildren, useEffect, useState } from "react";
 

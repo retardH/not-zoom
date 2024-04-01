@@ -53,7 +53,7 @@ const MeetingTypesList = () => {
       setCallDetails(call);
       toast("Meeting created!");
       if (!meetingInfo.desc) {
-        router.push(`/meeting/${call.id}`);
+        router.push(`/meeting/${call.id}?personal=true`);
       }
     } catch (error) {
       console.error(error);
