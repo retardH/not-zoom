@@ -94,7 +94,6 @@
 }
 
 /* ==== clerk class override ===== */
-
 .cl-userButtonPopoverActionButtonIcon {
   color: white;
 }
@@ -158,6 +157,11 @@
 
 .str-video__call-controls__button {
   height: 40px;
+}
+
+.str-video__video-preview-container {
+  max-width: 500px;
+  width: 98% !important;
 }
 
 .str-video__composite-button__button-group .str-video__call-controls__button.str-video__menu-toggle-button {
