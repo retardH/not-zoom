@@ -20,6 +20,7 @@ export const tokenProvider = async () => {
   const streamClient = new StreamClient(apiKey, apiSecret, {
     timeout: 5000,
   });
+  ("");
 
   // exp is optional (by default the token is valid for an hour)
   const exp = Math.round(new Date().getTime() / 1000) + 60 * 60;
