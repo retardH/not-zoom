@@ -53,7 +53,7 @@ const CallsList = ({ type }: CallsListProps) => {
         calls.map((call: Call | CallRecording) => {
           return (
             <MeetingCard
-              key=""
+              key={(call as Call).id}
               title={
                 (call as Call).state?.custom?.description ||
                 (call as CallRecording).filename?.substring(0, 20) ||

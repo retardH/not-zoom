@@ -45,7 +45,7 @@ const MeetingRoom = () => {
       case "speaker-right":
         return <SpeakerLayout participantsBarPosition="left" />;
       default:
-        return <SpeakerLayout participantsBarPosition="right" />;
+        return <SpeakerLayout />;
     }
   };
 
@@ -101,7 +101,7 @@ const MeetingRoom = () => {
             <Users size={20} />
           </div>
         </button>
-        {isPersonalRoom && <EndCallButton />}
+        {!isPersonalRoom && <EndCallButton />}
       </div>
     </section>
   );

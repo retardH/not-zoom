@@ -32,7 +32,13 @@ const MeetingTypesList = () => {
     if (!user || !client) return;
     try {
       if (!meetingInfo.dateTime) {
-        toast("Plese select datetime for the meeting.");
+        toast.error("Plese select datetime for the meeting");
+        return;
+      }
+
+      if (meetingType === "isScheduleMeeting" && !meetingInfo.desc) {
+        toast.error("Please provide a description");
+        return;
       }
 
       const callId = crypto.randomUUID();
@@ -52,10 +58,11 @@ const MeetingTypesList = () => {
           },
         },
       });
+
       setCallDetails(call);
-      toast("Meeting created!");
+      toast.success("Meeting created!");
       if (!meetingInfo.desc) {
-        router.push(`/meeting/${call.id}?personal=true`);
+        router.push(`/meeting/${call.id}`);
       }
     } catch (error) {
       console.error(error);
@@ -63,7 +70,7 @@ const MeetingTypesList = () => {
     }
   };
 
-  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.id}`;
+  const meetingLink = `${location.origin}/meeting/${callDetails?.id}`;
 
   return (
     <section className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">

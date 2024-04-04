@@ -24,13 +24,13 @@ const MeetingCard = ({
   secondBtnOnClick,
 }: MeetingCardProps) => {
   return (
-    <div className="flex cursor-pointer flex-col gap-2 rounded-md bg-dark-3 p-5 transition-all hover:bg-dark-3/90">
+    <div className="flex cursor-pointer flex-col gap-2 rounded-md bg-dark-3 p-4 transition-all hover:bg-dark-3/90 md:p-5">
       <Image src={cardIconUrl} width={24} height={24} alt="card icon" />
       <h4 className="text-lg font-semibold md:text-xl xl:text-2xl">{title}</h4>
       <p className="text-sm font-normal text-sky-100 lg:text-base">{date}</p>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col items-start justify-between gap-3 pt-4 md:flex-row md:items-center">
         {!!showAvatars && (
-          <div className="relative mt-4 flex flex-1 items-center">
+          <div className="relative flex flex-1 items-center">
             {avatarImages.map((img) => {
               return (
                 <Image
@@ -46,7 +46,7 @@ const MeetingCard = ({
           </div>
         )}
         {!!showButtons && (
-          <div className="mt-4 flex flex-1 items-center gap-1.5">
+          <div className="flex w-full flex-1 items-center gap-1.5 md:w-auto">
             <Button variant="blue" className="flex-1" onClick={firstBtnOnClick}>
               {firstBtnText || "Start"}
             </Button>
