@@ -8,6 +8,7 @@ import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { toast } from "react-hot-toast";
 import { Textarea } from "@/components/ui/textarea";
 import ReactDatePicker from "react-datepicker";
+import { Input } from "@/components/ui/input";
 
 type MeetingType =
   | "isInstantMeeting"
@@ -179,9 +180,20 @@ const MeetingTypesList = () => {
       <MeetingModal
         isOpen={meetingType === "isJoiningMeeting"}
         onClose={() => setMeetingType(undefined)}
-        title="Start an meeting"
-        onOk={createMeeting}
-      />
+        title="Join a meeting"
+        onOk={() => {
+          router.push(meetingInfo.link);
+        }}
+        buttonText="Join"
+      >
+        <Input
+          placeholder="meeting link"
+          value={meetingInfo.link}
+          onChange={(e) => {
+            setMeetingInfo({ ...meetingInfo, link: e.target.value });
+          }}
+        />
+      </MeetingModal>
 
       {/* Instant Meeting Modal */}
       <MeetingModal
