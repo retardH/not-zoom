@@ -59,7 +59,6 @@ const MeetingTypesList = () => {
           },
         },
       });
-
       setCallDetails(call);
       toast.success("Meeting created!");
       if (!meetingInfo.desc) {

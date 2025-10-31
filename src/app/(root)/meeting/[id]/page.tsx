@@ -27,7 +27,7 @@ const MeetingPage: NextPage<{ params: { id: string } }> = ({ params }) => {
     call?.type === "invited" &&
     (!user || !call.state.members.find((m) => m.user_id === user.id));
 
-  if (!notAllowed) {
+  if (notAllowed) {
     return <Alert title="You are not allowed to join this meeting." />;
   }
 
