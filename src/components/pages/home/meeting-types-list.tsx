@@ -8,6 +8,7 @@ import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { toast } from "react-hot-toast";
 import { Textarea } from "@/components/ui/textarea";
 import ReactDatePicker from "react-datepicker";
+import { Input } from "@/components/ui/input";
 
 type MeetingType =
   | "isInstantMeeting"
@@ -58,7 +59,6 @@ const MeetingTypesList = () => {
           },
         },
       });
-
       setCallDetails(call);
       toast.success("Meeting created!");
       if (!meetingInfo.desc) {
@@ -73,7 +73,7 @@ const MeetingTypesList = () => {
   const meetingLink = `${location.origin}/meeting/${callDetails?.id}`;
 
   return (
-    <section className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <section className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-8">
       <MeetingCard
         title="New Meeting"
         desc="Starts an instant meeting"
@@ -179,9 +179,20 @@ const MeetingTypesList = () => {
       <MeetingModal
         isOpen={meetingType === "isJoiningMeeting"}
         onClose={() => setMeetingType(undefined)}
-        title="Start an meeting"
-        onOk={createMeeting}
-      />
+        title="Join a meeting"
+        onOk={() => {
+          router.push(meetingInfo.link);
+        }}
+        buttonText="Join"
+      >
+        <Input
+          placeholder="meeting link"
+          value={meetingInfo.link}
+          onChange={(e) => {
+            setMeetingInfo({ ...meetingInfo, link: e.target.value });
+          }}
+        />
+      </MeetingModal>
 
       {/* Instant Meeting Modal */}
       <MeetingModal
