@@ -19,7 +19,7 @@ const MeetingCard = ({
   return (
     <div
       className={cn(
-        "flex min-h-[260px] w-full cursor-pointer flex-col justify-between rounded-lg px-4 py-5 xl:max-w-[270px]",
+        "flex min-h-[260px] w-full cursor-pointer flex-col justify-between rounded-lg px-4 py-5",
         className,
       )}
       onClick={handleClick}

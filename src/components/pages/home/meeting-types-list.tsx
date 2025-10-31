@@ -74,7 +74,7 @@ const MeetingTypesList = () => {
   const meetingLink = `${location.origin}/meeting/${callDetails?.id}`;
 
   return (
-    <section className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <section className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-8">
       <MeetingCard
         title="New Meeting"
         desc="Starts an instant meeting"
